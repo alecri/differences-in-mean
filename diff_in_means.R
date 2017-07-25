@@ -191,7 +191,7 @@ quadr <- dosresmeta(formula = y ~ dose + I(dose^2), id = id,
                     sd = sd, n = n, covariance = "md", data = ari)
 ## Piecewise with knot = 20.1
 k <- 20.1
-modi <- lapply(split(ari, ari$id), function(x)
+modi_nk <- lapply(split(ari, ari$id), function(x)
   if (max(x$dose) < k){
     dosresmeta(formula = y ~ dose,
                sd = sd, n = n, covariance = "md", data = x)
@@ -200,9 +200,9 @@ modi <- lapply(split(ari, ari$id), function(x)
                sd = sd, n = n, covariance = "md", data = x)
   }
 )
-nscoef <- do.call("rbind", lapply(modi, coef))
+nscoef <- do.call("rbind", lapply(modi_nk, coef))
 nscoef[1:2, 2] <- NA
-nsvcov <- lapply(modi, vcov)
+nsvcov <- lapply(modi_nk, vcov)
 nsvcov[1:2] <- lapply(nsvcov[1:2], function(s){
   m <- matrix(NA, nrow = 2, ncol = 2)
   m[1, 1] <- s
@@ -241,6 +241,9 @@ dev.off()
 
 
 ## Table 4
+## Note that there is a typo in the published article:
+## the coefficients for the spline models are misreported: they are the coefficients
+## of the piecewise linear models
 coefi <- rbind(do.call("rbind", lapply(modi, coef)), 
                mod_frac$bi, do.call("rbind", lapply(emaxi, coef)),
                quadr$bi, nscoef)
