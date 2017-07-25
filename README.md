@@ -7,3 +7,4 @@ The repository contains material to reproduce results (numbers in text, tables, 
 
 In particular, it contains:
 - diff_in_means.R, an R script to reproduce the main findings.
+- no_lapply.R, same as diff_in_means.R but without the use of lapply and Map functions (use of loops)
