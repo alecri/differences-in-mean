@@ -1,6 +1,6 @@
 ###  Dose-response meta-analysis of differences in means
 
-**[Andrea Discacciati](http://anddis.github.io/)<sup>1,2</sup>, [Alessio Crippa](http://alecri.github.io)<sup>1</sup>, and [Nicola Orsini](http://nicolaorsini.altervista.org)<sup>1</sup>**
+**[Alessio Crippa](http://alecri.github.io)<sup>1</sup>, and [Nicola Orsini](http://nicolaorsini.altervista.org)<sup>1</sup>**
 
 _<sup>1</sup>Department of Public Health Sciences, Karolinska Institutet, Stockholm, Sweden_
 
